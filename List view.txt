@@ -1,0 +1,41 @@
+Q2. Create an android application that demonstrates listview and onclick of list display the toast
+ 
+ 
+Main activity 
+ 
+ 
+package com.example.list;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MainActivity extends AppCompatActivity {
+
+    String fruitlis[];
+    ListView listview;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        listview= findViewById(R.id.listview);
+        fruitlis = getResources().getStringArray(R.array.array_technology);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter <String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,fruitlis);
+        listview.setAdapter(arrayAdapter);
+    }
+}
+
+
+activity main
+<?xml version="1.0" encoding="utf-8"?>
+<ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ListView android:id="@+id/listview" />
+</ConstraintLayout>
+
